@@ -728,7 +728,7 @@ def calc_close_grid_backwards_long(
         else:
             return [(0.0, 0.0, "")]
         return closes
-    qty_per_close = max(min_qty, round_up(full_psize / len(close_prices_all), qty_step))
+    qty_per_close = max(min_qty, round_up(psize / len(close_prices_all), qty_step))
     for price in close_prices[::-1]:
         min_entry_qty = calc_min_entry_qty(price, inverse, c_mult, qty_step, min_qty, min_cost)
         qty = min(psize_, max(qty_per_close, min_entry_qty))
@@ -928,7 +928,7 @@ def calc_close_grid_backwards_short(
         else:
             return [(0.0, 0.0, "")]
         return closes
-    qty_per_close = max(min_qty, round_up(full_psize / len(close_prices_all), qty_step))
+    qty_per_close = max(min_qty, round_up(psize / len(close_prices_all), qty_step))
     for price in close_prices[::-1]:
         min_entry_qty = calc_min_entry_qty(price, inverse, c_mult, qty_step, min_qty, min_cost)
         qty = min(psize_, max(qty_per_close, min_entry_qty))
