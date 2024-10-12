@@ -76,7 +76,7 @@ def setup_logging(config_name):
     
     # Create file handler for logging to a file inside the logs directory
     log_filename = os.path.join(log_dir, f"{os.path.basename(config_name)}.log")
-    file_handler = RotatingFileHandler(log_filename, maxBytes=25 * 1024 * 1024, backupCount=10)
+    file_handler = RotatingFileHandler(log_filename, maxBytes=5 * 1024 * 1024, backupCount=10)
     file_handler.setLevel(logging.INFO)
     
     # Create a formatter and set it for both handlers
